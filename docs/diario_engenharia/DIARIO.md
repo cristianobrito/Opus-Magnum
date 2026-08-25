@@ -294,3 +294,10 @@ git commit -m "chore(release): prepara v1.0.0"
 git tag -a v1.0.0 -m "Release v1.0.0"
 git push origin --tags
 
+### Como commitar um arquivo
+ ```bash 
+  git add .
+  git status
+  git commit -v "comente seu commit"
+  git push origin main
+```
