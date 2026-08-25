@@ -190,10 +190,10 @@ git commit -m "fix(escopo): descrição do problema"
 git push origin hotfix/descricao
 3. Release:
 
-Bash
+```Bash
 git checkout -b release/v1.0.0 develop
 git commit -m "chore(release): prepara v1.0.0"
 git tag -a v1.0.0 -m "Release v1.0.0"
 git push origin --tags
+```
 
-Pode colar esse bloco inteiro no seu `DIARIO.md`, mestre Cris! Agora o documento está robusto, completo, cheio de explicações do jeito que você construiu, mas com a engenharia do Markdown impecável e sem nenhuma tag solta. 🚀🔥
