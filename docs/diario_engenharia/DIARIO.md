@@ -210,7 +210,30 @@ git push origin --tags
   das chaves do objeto
 
 - git add ../../ 
+  
   eu estava na pasta vanilla-spa então usei esse
   comando para adicionar ao estages todos os arquivos
-  co caso era o diario.md
+  no caso era o diario.md
 
+- para mandar imediatamente para o repositorio
+  
+  git push --set-upstream origin feat/opus-dashboard-crm-kanban
+
+
+### lembrar de entrar na branch correta para ver as atualizaçoes
+
+- const response = await fetch(`${API_URL}/users`);
+  - /users é a rota o endpoint
+
+
+## RESOLVENDO PROBLEMAS DO TABLET
+- No tablet o navegador nao tem f12 para mostrar ferramentas do deenvolvedor
+  para isso adicionei no dentro da tag head logo no inicio da tag arquivo index.html
+
+  ```html  
+    <!-- Console Eruda para mobile / tablet -->
+    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+    <script>eruda.init();</script>
+  ```
+
+- isso serve para criar um console para visualizar no navegador do tablet
