@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opus-Magnum | Dashboard CRM & Kanban</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <h1>Opus-Magnum // Control Center</h1>
+        <p>Módulo: Mini-CRM & Kanban (Vanilla JS + API)</p>
+    </header>
+
+    <main class="dashboard-main">
+        <!-- SEÇÃO 1: Mini-CRM -->
+        <section class="dashboard-panel" id="crm-panel">
+            <h2>Mini-CRM (Usuários)</h2>
+            <div id="crm-data-output" class="card-grid">
+                <p class="status-loading">Carregando dados da API...</p>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 2: Kanban -->
+        <section class="dashboard-panel" id="kanban-panel">
+            <h2>Kanban de Tarefas</h2>
+            <div class="kanban-board">
+                <div class="kanban-col" id="col-todo">
+                    <h3>A Fazer</h3>
+                    <div class="task-list"></div>
+                </div>
+                <div class="kanban-col" id="col-doing">
+                    <h3>Em Progresso</h3>
+                    <div class="task-list"></div>
+                </div>
+                <div class="kanban-col" id="col-done">
+                    <h3>Concluído</h3>
+                    <div class="task-list"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+/* 
+  POR QUE USAR ISSO? (Reset Universal)
+  O asterisco (*) seleciona absolutamente todos os elementos da página. 
+  Isso serve para zerar as margens (margin) e preenchimentos (padding) padrão 
+  que cada navegador (Chrome, Firefox, Safari) coloca por conta própria, 
+  garantindo que o site fique com o mesmo visual em qualquer lugar.
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que bordas e paddings não "estourem" a largura dos elementos */
+}
+
+/* Estilização básica do corpo da página (Fundo e Fonte) */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0d1117; /* Tom escuro estilo terminal/GitHub dark */
+    color: #c9d1d9;             /* Cor de texto clara para leitura confortável */
+    padding: 20px;
+}
+
+/* Estilização do cabeçalho da página */
+.site-header {
+    margin-bottom: 30px;
+    border-bottom: 2px solid #30363d; /* Linha divisória sutil */
+    padding-bottom: 15px;
+}
+
+.site-header h1 {
+    color: #58a6ff; /* Azul destaque */
+    font-size: 1.8rem;
+}
+
+.site-header p {
+    color: #8b949e;
+    font-size: 0.95rem;
+}
+
+/* Container principal que segura os painéis */
+.dashboard-main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Espaçamento vertical entre o Mini-CRM e o Kanban */
+}
+
+/* Estilo padrão para cada painel (bloco) */
+.dashboard-panel {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px; /* Cantos levemente arredondados */
+    padding: 20px;
+}
+
+.dashboard-panel h2 {
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    color: #f0f6fc;
+    border-bottom: 1px solid #21262d;
+    padding-bottom: 8px;
+}
+
+/* 
+  O GRID DO MINI-CRM
+  POR QUE USAR ISSO? 
+  O 'display: grid' cria uma grade inteligente. O 'grid-template-columns' 
+  diz que queremos cartões com no mínimo 250px de largura, e eles vão se 
+  encaixar automaticamente lado a lado dependendo do tamanho da tela.
+*/
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+/* Estilo individual dos futuros cards de usuários do CRM */
+.crm-card {
+    background-color: #21262d;
+    border: 1px solid #30363d;
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.crm-card h3 {
+    color: #58a6ff;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.crm-card p {
+    font-size: 0.9rem;
+    color: #8b949e;
+    margin-bottom: 4px;
+}
+
+/* O QUADRO DO KANBAN */
+.kanban-board {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto; /* Permite rolar pro lado se a tela for muito pequena */
+}
+
+/* Colunas do Kanban */
+.kanban-col {
+    background-color: #21262d;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    flex: 1; /* Faz as colunas dividirem o espaço igualmente */
+    min-width: 250px;
+    padding: 15px;
+}
+
+.kanban-col h3 {
+    font-size: 1rem;
+    color: #c9d1d9;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.task-list {
+    min-height: 100px; /* Garante uma área útil mesmo vazia para receber itens */
+}
+
+/* Texto de status (Carregando) */
+.status-loading {
+    color: #d29922; /* Tom amarelado de aviso/processamento */
+    font-style: italic;
+}

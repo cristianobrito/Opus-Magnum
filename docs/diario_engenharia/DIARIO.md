@@ -173,6 +173,8 @@ git add .
 git status
 git commit -v -m "comente seu commit"
 git push origin main
+
+
 Comandos Rápidos por Categoria:
 1. Feature:
 
@@ -196,4 +198,19 @@ git commit -m "chore(release): prepara v1.0.0"
 git tag -a v1.0.0 -m "Release v1.0.0"
 git push origin --tags
 ```
+
+
+
+### uso do terminal
+- para colar ctrl + shift + v
+
+
+## CONSIDERAÇÕES FRONT END
+- Na criaçao de classes e ids nao precisamos usar os nomes
+  das chaves do objeto
+
+- git add ../../ 
+  eu estava na pasta vanilla-spa então usei esse
+  comando para adicionar ao estages todos os arquivos
+  co caso era o diario.md
 
