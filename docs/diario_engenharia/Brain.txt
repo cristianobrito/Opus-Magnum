@@ -1,0 +1,98 @@
+ARQUIVO DE PEÇAS PARA USAR 
+
+git checkout -b feat/kanban-tasks 
+  - cria branch e muda para ela 
+
+touch BrainJs.txt 
+  - cria um arquivo com a extensão especifica na pasta que queremos
+
+git mv BrainJs.txt ../../docs/diario_engenharia/BrainJs.txt
+  - para mover o arquivo de uma pasta para outra
+  - ele exige que o arquivo esteja sendo rastreado se não da erro
+
+mv BrainJs.txt ../../docs/diario_engenharia/
+  - mover de uma apsta para outra
+
+rm BrainJs.txt
+  - para remover o arquivo
+  - mesmo estando em outra pasta 
+
+async function fetchUsers()
+  - cria uma funçao asincrona
+
+const response = await fetch(`${API_URL}/users`);
+  - só pode ser usado dentro de uma funçao async 
+  - para a execuçao do code ate ter resposta await esperar
+
+fetch(`${API_URL}/users`)
+  - template string `${API_URL}/users`
+  - preciso copiar isso pois no tablet nao tem crases
+
+const users = await response.json();
+  - espera a conversão para json 
+
+const container = document.getElementById('crm-data-output');
+  - pega um elemento pelo id dele
+
+container.innerHTML ='';
+  - limpamos o elemento antes de usar 
+
+users.forEach(user => {
+  - percorrendo cada usuario 
+
+users.forEach(user => {console.log('Nome do usuario atual:', user.name);
+  - user.nome pega o valor da chave no caso o nome de cada usuario
+
+const card = document.createElement('div');
+  - cria um elemento div 
+
+card.className = 'crm-card';
+  - cria uma classe para o elemento div criado
+
+card.innerHTML = `
+            <h3>${user.name}</h3>
+            <p>${user.email}</p>
+        `;
+  - injeta o html respectivo dentro dessa div criada
+
+container.appendChild(card);
+  - anexa a div criada a pagina
+  - sem isso a div nao fica visivel na pagina 
+
+const response=await fetch(`${API_URL}/todos`);
+  - busca todas as tarefas
+  - /todos vem diretamente da api jsonplaceholder
+  - /todos é um endpoint uma rota 
+
+const tasks = await response.json();
+  - esperar a resposta json
+
+try{}catch(error){}
+  - atençao ao catch(error){} escrever corretamente
+
+const todoContainer = document.querySelector('#col-todo .task-list');
+  - <div class="kanban-col" id="col-todo">
+  - pega o elemento com esse id
+
+const doingContainer = document.querySelector('#col-doing .task-list');
+  - <div class="kanban-col" id="col-doing">
+  - para pegar id usar #nome
+
+const doneContainer = document.querySelector('#col-done .task-list');
+  - <div class="kanban-col" id="col-done">
+  - pega o elemento com o id #col-done 
+
+todoContainer.innerHTML = '';
+doingContainer.innerHTML = '';
+doneContainer.innerHTML = '';
+  - limpando cada um dos elementos
+
+git add frontend/vanilla-spa/app.js ../../docs/diario_engenharia/Brain.txt 
+  - adicionando pastas especificas para serem commitadas
+
+para adicionar todas as pastas ao git add . 
+  - preciso estar na pasta raiz Opus-Magnum 
+
+<tipo>(<escopo>): <descrição curta>
+  - commit padrão profissional
+  - git commit -m "feat(frontend): implementa listagem dinâmica de tarefas no kanban"

@@ -29,3 +29,40 @@ async function fetchUsers(){
 }
 // Chama a função para testar o carregamento assim que o script abrir
 fetchUsers();
+
+// iniciando kanbam-tasks
+async function fetchKanbanTasks() {
+  try{
+    const response=await fetch(`${API_URL}/todos`);
+    if(!response.ok){
+        throw new Error(`Erro ao buscar tarefas: ${response.status}`);
+    }
+    const tasks = await response.json();
+    console.log('Tarefas recebidas com sucesso: ', tasks);
+    const todoContainer = document.querySelector('#col-todo .task-list');
+    const doingContainer = document.querySelector('#col-doing .task-list');
+    const doneContainer = document.querySelector('#col-done .task-list');
+
+    todoContainer.innerHTML = '';
+    doingContainer.innerHTML = '';
+    doneContainer.innerHTML = '';
+    
+    tasks.forEach(task => {
+        const card = document.createElement('div');
+        card.className = 'crm-card';
+        card.innerHTML = `
+            <h3>Tarefa ${task.id}</h3>
+            <p>${task.title}</p>
+        `;
+        if(task.completed){
+            doneContainer.appendChild(card);
+        }else{
+            todoContainer.appendChild(card);
+        }
+    });
+  }catch(error){
+    console.error('Erro no kanban:', error);
+  }
+}
+
+fetchKanbanTasks();
