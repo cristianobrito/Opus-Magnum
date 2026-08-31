@@ -54,6 +54,14 @@ async function fetchKanbanTasks() {
             <h3>Tarefa ${task.id}</h3>
             <p>${task.title}</p>
         `;
+        card.setAttribute('draggable', 'true');
+        card.addEventListener('dragstart', (e) => {
+            e.dataTransfer.setData('text/plain', task.id);
+            card.classList.add('dragging');
+        });
+        card.addEventListener('dragend', () => {
+            card.classList.remove('dragging');
+        });
         if(task.completed){
             doneContainer.appendChild(card);
         }else{
@@ -63,6 +71,22 @@ async function fetchKanbanTasks() {
   }catch(error){
     console.error('Erro no kanban:', error);
   }
+  const columns = document.querySelectorAll('.kanban-col');
+  columns.forEach(column => {
+    column.addEventListener('dragover', (e) => {
+        e.preventDefault();
+      });
+      column.addEventListener('drop', (e) => {
+        e.preventDefault();
+        const taskId = e.dataTransfer.getData('text/plain');
+        const draggingCard = document.querySelector('.dragging');
+        if(draggingCard){
+          const targetTaskList = column.querySelector('.task-list');
+          targetTaskList.appendChild(draggingCard);
+          console.log(`Tarefa ${taskId} movida para a coluna:`, column.id);
+        }
+      });
+  });
 }
 
 fetchKanbanTasks();

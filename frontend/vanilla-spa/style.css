@@ -126,3 +126,15 @@ body {
     color: #d29922; /* Tom amarelado de aviso/processamento */
     font-style: italic;
 }
+
+
+/* Estilo aplicado no card no exato momento em que ele começa a ser arrastado */
+.crm-card.dragging {
+    opacity: 0.4; /* Deixa o card original semi-transparente durante o arraste */
+    border: 2px dashed #58a6ff; /* Borda tracejada azul para destacar */
+}
+
+/* Efeito visual opcional na coluna quando passamos um item por cima (opcional, melhora a UX) */
+.kanban-col.drag-over {
+    background-color: #2b313b; /* Muda levemente o tom do fundo da coluna */
+}
