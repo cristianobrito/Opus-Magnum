@@ -154,12 +154,11 @@ async function renderKanbanBoard() {
         <button class="button button5 btn-right btn-color-edit">
           <i class="fa fa-pencil" aria-hidden="true"></i>
         </button>
-        <button class="button button5 btn-right btn-color-delete">
+        <button class="button button5 btn-right btn-color-delete" id="data-delete-id">
           <i class="fa fa-times" aria-hidden="true"></i>
         </button>
         </div>
       `;
-
       card.setAttribute('draggable', 'true');
       card.setAttribute('data-id', task.id);
 
@@ -217,6 +216,32 @@ function setupDragAndDrop() {
     };
   });
 }
+
+// FUNCAO DE DELETAR CARDS (AINDA EM TESTES)
+async function deleteKanbanBoard() {
+  await renderKanbanBoard();
+  setupDragAndDrop();
+// Seleciona todos os elementos do tipo <button> na página
+const botoes = document.querySelectorAll("button");
+
+/*
+// Percorre cada botão usando o forEach
+botoes.forEach(function(botao) {
+    botao.addEventListener("click", function() {
+        console.log("Você clicou no botão:", botao.textContent);
+    });
+});
+*/
+botoes.forEach(function(botao) {
+    botao.addEventListener("click", (e) => {
+      console.log("objeto Evento: ------>", e);
+        console.log("Você clicou no botão:", e.target.textContent);
+    });
+});
+
+}
+deleteKanbanBoard();
+// ========== FIM DA FUNCAO DELETE ==========
 
 // Inicialização da aplicação do Kanban
 async function initKanban() {
