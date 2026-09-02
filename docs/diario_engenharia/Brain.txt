@@ -9,3 +9,49 @@ agora para comitar minha branch de estudos
   
   3. para salvar
      git push origin feature/nome-da-branch
+
+___________________________________________________________
+ERROR 1:
+    nao consigo colocar o botao dentro do card das tasks.
+    colocar no html ele fica por debaixo de todas as tasks.
+
+SOLUÇÃO 1:
+    colocar <button class="button button5">50%</button>
+    dentro da funçao que pega os dados que ja foram salvos 
+    no localstorage. dinamicamente.
+
+___________________________________________________________
+ERROR 2:
+    Para alinhar os buttons na esquerda do elemento.
+
+SOLUCAO 2:
+    Criei uma div que envolve todos os 3 buttons essa 
+    div foi criada dentro do template string no code
+    .js quando os cards estao sendo formados dinamicamente
+    e usei a seguinte formataçao.
+    .button-container{
+    display: flex;
+    flex-direction: row-reverse; /*coloca na esquerda*/
+    align-items: left;
+    }
+
+___________________________________________________________
+ERROR 3:
+    Nao consegui colocar espaços gap entre os cards depois que
+    eles voltam do localstorage 
+
+SOLUCAO 3:
+    A IA sugeriu e deu certo colocar e usar Isso
+    .task-list {
+    min-height: 100px; /* Garante uma área útil mesmo vazia para receber itens */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    }
+    o gap 10px 10px;  ele aceit mais de um ou seja gap linha coluna;
+    tive que usar o flex para dar direcao ao elemento
+    ajustar em colunas 
+
+___________________________________________________________
+ERROR 4:
+SOLUCAO 4:

@@ -147,6 +147,17 @@ async function renderKanbanBoard() {
       card.innerHTML = `
         <h3>Tarefa ${task.id}</h3>
         <p>${task.title}</p>
+        <div class="button-container">
+        <button class="button button5 btn-right btn-color-alert">
+          <i class="fa fa-refresh" aria-hidden="true"></i>
+        </button>
+        <button class="button button5 btn-right btn-color-edit">
+          <i class="fa fa-pencil" aria-hidden="true"></i>
+        </button>
+        <button class="button button5 btn-right btn-color-delete">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </button>
+        </div>
       `;
 
       card.setAttribute('draggable', 'true');
