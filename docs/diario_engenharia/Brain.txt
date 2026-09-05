@@ -15,7 +15,7 @@ ERROR 1:
     nao consigo colocar o botao dentro do card das tasks.
     colocar no html ele fica por debaixo de todas as tasks.
 
-SOLUÇÃO 1:
+SOLUÇÃO:
     colocar <button class="button button5">50%</button>
     dentro da funçao que pega os dados que ja foram salvos 
     no localstorage. dinamicamente.
@@ -24,7 +24,7 @@ ___________________________________________________________
 ERROR 2:
     Para alinhar os buttons na esquerda do elemento.
 
-SOLUCAO 2:
+SOLUCAO:
     Criei uma div que envolve todos os 3 buttons essa 
     div foi criada dentro do template string no code
     .js quando os cards estao sendo formados dinamicamente
@@ -40,7 +40,7 @@ ERROR 3:
     Nao consegui colocar espaços gap entre os cards depois que
     eles voltam do localstorage 
 
-SOLUCAO 3:
+SOLUCAO:
     A IA sugeriu e deu certo colocar e usar Isso
     .task-list {
     min-height: 100px; /* Garante uma área útil mesmo vazia para receber itens */
@@ -54,4 +54,13 @@ SOLUCAO 3:
 
 ___________________________________________________________
 ERROR 4:
-SOLUCAO 4:
+  Para entrar no codespaces pode ser direto pela interface ou
+  Acesse github.com/codespaces para ver todos os seus códigos.
+  por ai isso nao é um erro foi por onde entrei. 
+
+SOLUCAO:
+
+___________________________________________________________
+ERROR 5:
+
+SOLUCAO:
