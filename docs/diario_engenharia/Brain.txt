@@ -48,9 +48,19 @@ SOLUCAO:
     flex-direction: column;
     gap: 15px;
     }
-    o gap 10px 10px;  ele aceit mais de um ou seja gap linha coluna;
+    o gap 10px 10px;  ele aceit mais de um ou seja 
+    gap linha coluna;
     tive que usar o flex para dar direcao ao elemento
     ajustar em colunas 
+
+DICA: sobre o Flexbox (Erro 3)
+vale lembrar que em layouts 
+de coluna única (flex-direction: column), o gap espaça os 
+itens verticalmente. Quando você usa dois valores 
+(ex: gap: 15px 10px;), o primeiro define o espaçamento 
+entre as linhas e o segundo entre as colunas, perfeito 
+para quando os elementos quebram linha ou quando você 
+usa layouts flexíveis complexos!
 
 ___________________________________________________________
 ERROR 4:
