@@ -4,7 +4,7 @@
  ______________________________________
 
 # sab. 19/set/2026 17:05
- inicido do projeto:
+ inicio do projeto:
    senior-care    <---- mkdir senior-care
      |
      |-- .env       <--- touch .env
@@ -34,3 +34,48 @@ como apagar toda a pasta de historico
 
 formato correto para dia mes ano hora e minuto
   cp prd.txt .history/prd_$(date +%d%m%Y_%H%M).txt
+
+
+
+# sab. 19/set/2026 17:20 
+ATENÇAO:
+  ERRO:
+    fiz git init dentro da pasta senior-care porem isso é um erro 
+    pois, somente a pasta princiapl Opus-Magnum vai controlar o 
+    versionamento somente ela vai salvar e enviar para o git 
+    ela nao pode ter outra pasta dentro dela com .git pois isso
+    causa erro entao como remover o git init,
+  
+  SOLUÇAO:
+    1. remover o git init 
+       cd senior-care
+       rm -rf .git
+    2. voltar paa a pasta raiz Opus-Magnum  
+       cd ..
+       git status
+    3. adicionar ao stage
+       git add .
+       git status 
+    4. commitar 
+       git commit -m "feat: adiciona o projeto senior-care na raiz do workspace"
+    5. subir push 
+      git push origin main 
+
+  SALVAR COMMITAR E ENVIAR PARA O GIT 
+    1. git status
+    2. git add .
+    3. git commit -m "feat: form enviando para o banco de dados"
+    4. git push -u origin feature/action-buttons
+    5. git checkout main
+    6. git pull origin main
+    7. git merge feature/action-buttons
+    8. git push -u origin main
+
+OBSERVAÇAO:
+   as pastas .history .env .gitignore continuam dentro da pasta 
+   senior-care e tbm dentro da pasta Opus-Magnum isso vai ser 
+   para todo projeto sempre teremos em cada pasta de projeto criado
+   essas pastas elas protegem somente a pasta em que estao 
+   conclusão: o projeto esta correto.
+
+# continua na segunda feira 21/09/2026    
