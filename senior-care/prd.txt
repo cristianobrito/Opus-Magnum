@@ -1,0 +1,36 @@
+ ______________________________________
+|  PRD DOCUMENT REQUERIMENS PRODUCT    |
+|  documento de requisitos do produto  |
+ ______________________________________
+
+# sab. 19/set/2026 17:05
+ inicido do projeto:
+   senior-care    <---- mkdir senior-care
+     |
+     |-- .env       <--- touch .env
+     |-- .history   <--- touch .history
+     |-- prd.txt    <--- touch prd.txt
+     |-- README.md  <--- touxh README.md
+     |-- 
+
+na pasta rais senior-care foi usado git init e npm init -y 
+esses comandos sao sempre dados na pasta raiz ou seja 
+qualquer coisa que eu queira instalar sempre ir na raiz 
+onde tem o package.json
+o nmp init -y gera o package.json 
+
+o caminho do package.json
+  /workspaces/Opus-Magnum/senior-care/package.json 
+
+como copiar um arquivo para a pasta .history ja com a tag
+  cp prd.txt .history/prd_$(date +%Y%m%d_%H%M).txt
+
+como copiar os outros arquivos
+  cp nome-do-arquivo.js .history/nome-do-arquivo_$(date +%Y%m%d_%H%M).js 
+  usando a mesma logica
+
+como apagar toda a pasta de historico
+  rm .history/prd_2026*
+
+formato correto para dia mes ano hora e minuto
+  cp prd.txt .history/prd_$(date +%d%m%Y_%H%M).txt

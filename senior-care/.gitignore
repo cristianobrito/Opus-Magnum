@@ -1,0 +1,12 @@
+# Dependências
+node_modules/
+
+# Variáveis de ambiente e chaves sensíveis
+.env
+
+# Histórico de salvamentos manuais locais
+.history/
+
+# Arquivos de sistema operacional
+.DS_Store
+Thumbs.db
