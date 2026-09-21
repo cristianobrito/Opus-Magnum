@@ -1,0 +1,25 @@
+_________________________________________________
+       PRD PRODUCT REQUERIMEN DOCUMENT 
+      documento de requisitos do produto 
+_________________________________________________
+
+seg. 21/set/2026 15:29 
+  ESTRUTURA INICIAL:
+  continhaZAP/    <--- diretorio raiz package.json npm init -y
+     |
+     |--- .env       <--- touch .env 
+     |--- .history   <--- touch .history 
+     |--- prd.txt 
+     |--- README.md 
+     |--- .gitignore
+
+SALVAR COMMITAR E ENVIAR PARA O GIT 
+    0. ir para a raiz Opus-Magnum
+    1. git status
+    2. git add .
+    3. git commit -m "feat: form enviando para o banco de dados"
+    4. git push -u origin feature/action-buttons
+    5. git checkout main
+    6. git pull origin main
+    7. git merge feature/action-buttons
+    8. git push -u origin main
