@@ -23,3 +23,55 @@ SALVAR COMMITAR E ENVIAR PARA O GIT
     6. git pull origin main
     7. git merge feature/action-buttons
     8. git push -u origin main
+
+
+sex. 25/set/2026 14:18
+
+  - craiaçao da branch
+    feature/implementation-wpp
+
+  - criei uma pasta chamda bot e dentro dela clonarei o repo wpp 
+    mkdir continhaZAP/bot
+  
+  - clonar o repositorio para dentro da pasta continhaZAP
+    git clone https://github.com/wppconnect-team/wppconnect-server.git && cd wppconnect-server
+    clonei do site oficial 
+
+  - depois de clonado entre na pasta do projeto
+    wppconnect-server 
+
+  - depois de entrar devemos instalar as dependencias
+    npm install 
+    aguradar todas as dependencias serem instaladas
+
+  - rodar o projeto ir no package.json para ver se tiver duvida
+    npm rum dev
+
+  - no terminal se tudo estiver correto ele nos dara o link do swagger
+    clicar nele para abrir o navegador 
+    visit http://localhost:21465/api-docs for swagger docs 
+
+  - tive que abrir pelo proprio vscode indo em portas e clicando no globo
+    https://vigilant-space-train-qv4vw6qqvp539r4v-21465.app.github.dev/api-docs/ 
+    na url que abre preciso adicionar /api-docs 
+
+    feito isso obtive exito em toda a instalaçao 
+    a api deles ja oferece todos os end-points
+    
+    proximos passos:
+    criar sessao 
+      - gerar o token para iniciar a sessao
+      - dar nome a sessao 
+      - click em execute
+      - copie o token gerado e cole e autorize
+    criar o qrcode
+      -
+      -
+      -
+    
+    com isso encerro a sexta feira 
+    
+    link do video
+    https://youtu.be/GjvfuXOyiDg?is=JlNKwTvWQge4CBEv 
+    derrubar o server ctrl+c
+
