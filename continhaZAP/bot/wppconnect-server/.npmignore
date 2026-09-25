@@ -1,0 +1,12 @@
+.*
+*.tgz
+*.zip
+/*.png
+/log
+/src
+/tokens
+/WhatsAppImages
+nodemon.json
+requests.http
+yarn.lock
+!.env.example
