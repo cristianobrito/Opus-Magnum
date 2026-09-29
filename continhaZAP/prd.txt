@@ -75,3 +75,32 @@ sex. 25/set/2026 14:18
     https://youtu.be/GjvfuXOyiDg?is=JlNKwTvWQge4CBEv 
     derrubar o server ctrl+c
 
+
+sex. 29/set/2026 12:26 
+  - estando na dentro da pasta wppconnect-server 
+  - npm run dev 
+  - ir na url 
+    https://vigilant-space-train-qv4vw6qqvp539r4v-21465.app.github.dev/api-docs/  
+
+  - gerar o token 
+    detalhes da sessao
+    {
+      "status": "success",
+      "session": "teste",
+      "token": "$2b$10$BrJKfRwoUYcDhPF9Zu.1uOZXfqa._RjPIVhRLY8chdldF39rYn5gS",
+      "full": "teste:$2b$10$BrJKfRwoUYcDhPF9Zu.1uOZXfqa._RjPIVhRLY8chdldF39rYn5gS"
+    }
+
+  - o token 
+    $2b$10$BrJKfRwoUYcDhPF9Zu.1uOZXfqa._RjPIVhRLY8chdldF39rYn5gS 
+  - copie esse token vai em autorize e cole 
+    
+  - start session 
+    
+  - pegar o qrcode 
+
+
+  RESOLVENDO ERROR
+  - apagar a sessao 
+    rm -rf userDataDir/teste* 
+    

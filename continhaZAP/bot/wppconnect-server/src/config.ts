@@ -58,46 +58,51 @@ export default {
     logger: ['console', 'file'],
   },
   createOptions: {
-    browserArgs: [
-      '--disable-web-security',
+  headless: true,
+  devtools: false,
+  useChrome: false,           // usa o Chromium do Puppeteer
+  debug: true,
+  logQR: true,
+  updatesLog: true,
+  autoClose: 0,          // 3 minutos
+  browserWSEndpoint: undefined,
+  browserArgs: [
+    '--no-sandbox',
+    '--disable-setuid-sandbox',
+    '--disable-dev-shm-usage',
+    '--disable-gpu',
+    '--disable-software-rasterizer',
+    '--disable-extensions',
+    '--disable-background-networking',
+    '--disable-default-apps',
+    '--mute-audio',
+    '--hide-scrollbars',
+    '--disable-translate',
+    '--no-first-run',
+    '--disable-web-security',
+    '--ignore-certificate-errors',
+    '--ignore-ssl-errors',
+  ],
+  puppeteerOptions: {
+    headless: true,
+    timeout: 180000,
+    protocolTimeout: 180000,
+    executablePath: '/home/codespace/.cache/puppeteer/chrome/linux-148.0.7778.97/chrome-linux64/chrome',
+    args: [
       '--no-sandbox',
-      '--disable-web-security',
-      '--aggressive-cache-discard',
-      '--disable-cache',
-      '--disable-application-cache',
-      '--disable-offline-load-stale-cache',
-      '--disk-cache-size=0',
-      '--disable-background-networking',
-      '--disable-default-apps',
-      '--disable-extensions',
-      '--disable-sync',
+      '--disable-setuid-sandbox',
       '--disable-dev-shm-usage',
       '--disable-gpu',
-      '--disable-translate',
-      '--hide-scrollbars',
-      '--metrics-recording-only',
-      '--mute-audio',
-      '--no-first-run',
-      '--safebrowsing-disable-auto-update',
-      '--ignore-certificate-errors',
-      '--ignore-ssl-errors',
-      '--ignore-certificate-errors-spki-list',
+      '--single-process',
+      '--no-zygote',
+      '--disable-software-rasterizer',
     ],
-    /**
-     * Example of configuring the linkPreview generator
-     * If you set this to 'null', it will use global servers; however, you have the option to define your own server
-     * Clone the repository https://github.com/wppconnect-team/wa-js-api-server and host it on your server with ssl
-     *
-     * Configure the attribute as follows:
-     * linkPreviewApiServers: [ 'https://www.yourserver.com/wa-js-api-server' ]
-     */
-    linkPreviewApiServers: null,
-
-    /**
-     * Set specific whatsapp version
-     */
-    // whatsappVersion: '2.xxxxx',
+    // Descomente a linha abaixo se instalar o Chromium do sistema
+    // executablePath: '/usr/bin/chromium-browser',
   },
+  linkPreviewApiServers: null,
+  whatsappVersion: '2.3000.1029423425',      // deixe null mesmo
+},
   mapper: {
     enable: false,
     prefix: 'tagone-',
