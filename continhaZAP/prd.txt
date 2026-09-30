@@ -103,4 +103,15 @@ sex. 29/set/2026 12:26
   RESOLVENDO ERROR
   - apagar a sessao 
     rm -rf userDataDir/teste* 
+    rm -rf tokens
+    rm -rf userDataDir/teste55
+    rm -rf tokens userDataDir/teste55
+    apagando a pasta tokens e a pasta de sessao 
+    ainda nao resolvi o erro 
+
+
+    verificar o estado da sessao 
+    curl http://localhost:21465/api/teste2/check-connection-session \
+    -H "Authorization: Bearer SEU_TOKEN"
+
     

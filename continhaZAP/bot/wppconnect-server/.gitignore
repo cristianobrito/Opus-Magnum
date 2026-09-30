@@ -15,6 +15,7 @@
 /package-lock.json
 *.png
 *.tgz
+*.log
 *.zip
 /.idea
 userDataDir

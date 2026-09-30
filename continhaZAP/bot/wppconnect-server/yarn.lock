@@ -2823,10 +2823,10 @@
   resolved "https://registry.npmjs.org/@webpack-cli/serve/-/serve-3.0.1.tgz"
   integrity sha512-sbgw03xQaCLiT6gcY/6u3qBDn01CWw/nbaXl3gTdTFuJJ75Gffv3E3DBpgvY2fkkrdS1fpjaXNOmJlnbtKauKg==
 
-"@wppconnect-team/wppconnect@^2.3.3":
-  version "2.3.3"
-  resolved "https://registry.npmjs.org/@wppconnect-team/wppconnect/-/wppconnect-2.3.3.tgz"
-  integrity sha512-coSWssnRJEQ/BvlpR8+C49O6qtzd7BbTKNyI1AAIYeOgzkfSJ+fHEgjTuARz/qspNXLovv0PQfuL/ZyDQ7Hahw==
+"@wppconnect-team/wppconnect@https://github.com/wppconnect-team/wppconnect/releases/download/nightly/wppconnect-nightly.tgz":
+  version "2.3.4-alpha.0"
+  resolved "https://github.com/wppconnect-team/wppconnect/releases/download/nightly/wppconnect-nightly.tgz"
+  integrity sha512-/XGkXOCgKmYnanx4qLyfil+wYUIpkNXU3fKcRF5dER6jI3HowXaeASIJ+wdtwAWLTZkTI+xdT876vk9xU3TvhQ==
   dependencies:
     "@wppconnect/wa-js" "^4.6.0"
     "@wppconnect/wa-version" "^1.5.4472"
