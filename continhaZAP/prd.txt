@@ -114,4 +114,26 @@ sex. 29/set/2026 12:26
     curl http://localhost:21465/api/teste2/check-connection-session \
     -H "Authorization: Bearer SEU_TOKEN"
 
-    
+  
+
+qui. 01/out/2026 13:49
+   - instalaçao ollama
+   - feature/install-ollama 
+     pkg install ollama -y 
+     esse comando nao funciona no codespaces
+
+   - segunda tentativa de instalaçao
+     curl -fsSL https://ollama.com/install.sh | sh
+
+   - depois de instalar 
+     - iniciar o servidor obs: deixar um terminal aberto com esse code abaixo
+       ollama serve &
+
+   - baixar e rodar  obs: em outro terminal  
+     ollama run qwen:0.5b 
+   - sair 
+     /exit 
+   - fechar o servidor
+     ctrl + c 
+
+  
