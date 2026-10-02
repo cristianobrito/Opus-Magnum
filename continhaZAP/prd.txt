@@ -179,3 +179,14 @@ sex. 02/out/2026 13:57
   - ja salvei e commitei essa branch 
     commit "feat: adiciona rota inicial de webhook em JS" 
     git push origin feature/create-webhook
+
+
+
+sex. 02/out/2026 15:12 
+   - criando uma nova branch 
+     feature/integrate-ollama 
+   - em um terminal separado iniciamos o ollama 
+     ollama serve
+   
+   - em outro terminal verificar se ele iniciou 
+     curl http://localhost:11434/api/tags 
