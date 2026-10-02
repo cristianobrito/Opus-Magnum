@@ -172,5 +172,10 @@ sex. 02/out/2026 13:57
        justamenet a mensagem que escrevemos nos arquivo 
        webhook.js 
 
-  
+  - verificar se o ollama esta instalado e ativo use os comandos abaixo  
+    which ollama
+    curl http://localhost:11434/api/tags
 
+  - ja salvei e commitei essa branch 
+    commit "feat: adiciona rota inicial de webhook em JS" 
+    git push origin feature/create-webhook
