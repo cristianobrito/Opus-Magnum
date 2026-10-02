@@ -136,4 +136,41 @@ qui. 01/out/2026 13:49
    - fechar o servidor
      ctrl + c 
 
+
+
+sex. 02/out/2026 13:57 
+  - branch 
+    feature/create-webhook 
+
+  - para reconectar
+    - no browser colocar o mesmo nome da sessao nesse caso teste3 
+    - gerar um novo token 
+    - copiar o novo token gerado 
+    - colar em autorizar 
+    obs: ate aqui ok gerei e enviei uma nova mensagem para o zap 
+
+  - criando o arquivo para  a rota webhook
+    - touch src/routes/webhook.js 
+    nessa rota é onde receberei as mensagens quando alguem mandar
+
+  - agora registrar a nova rota
+    - src/routes/index.ts   entramos nele para registrar a nova rota 
+    - const webhookRouter = require('./webhook'); adicionar o import 
+    - // Webhook IA / Ollama
+      routes.use(webhookRouter);
+      adicionamos isso ao final do arquivo 
+
+  - depois disso parar o servidor ctrl+c 
+  - reiniciar npm run dev 
+  - para testar vamos usar outra janela abrir outr terminal e deixar esse rodando
+  - no outro terminal mandamos isso 
+    curl -X POST http://localhost:21465/webhook \
+  -H "Content-Type: application/json" \
+  -d '{"teste": "Olá Ollama, funcionando por aqui!"}' 
+
+  obs: o terminal deve mostar mensagem recebida com sucesso 
+       justamenet a mensagem que escrevemos nos arquivo 
+       webhook.js 
+
   
+

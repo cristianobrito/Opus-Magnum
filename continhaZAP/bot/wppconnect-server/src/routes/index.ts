@@ -36,6 +36,7 @@ import * as HealthCheck from '../middleware/healthCheck';
 import * as prometheusRegister from '../middleware/instrumentation';
 import statusConnection from '../middleware/statusConnection';
 import swaggerDocument from '../swagger.json';
+import webhookRouter from './webhook'; 
 
 const upload = multer(uploadConfig as any) as any;
 const routes: Router = Router();
@@ -966,5 +967,8 @@ routes.get('/unhealthy', HealthCheck.unhealthy);
 //Metrics Prometheus
 
 routes.get('/metrics', prometheusRegister.metrics);
+
+// Webhook IA / Ollama
+routes.use(webhookRouter);
 
 export default routes;
