@@ -189,4 +189,74 @@ sex. 02/out/2026 15:12
      ollama serve
    
    - em outro terminal verificar se ele iniciou 
-     curl http://localhost:11434/api/tags 
+     curl http://localhost:11434/api/tags  
+
+     - rota webhook 
+       https://vigilant-space-train-qv4vw6qqvp539r4v-21465.app.github.dev/webhook 
+
+     - apos de novo alguns erros na geraçao do qrcode 
+       - resetar o token e e sessao 
+       - recriar o token e sessao e autorizar 
+       - limpar os campos webhook e outros no start session em post 
+       - antes de iniciar sessao deixar o gerar qrcode ativo mas nao clicar em executar 
+       - nao deixar o webzap conectado no meu tablet  
+       - ate esse ponto testei o envio de mensgens o webhook rota 
+         {
+            "webhook": "https://vigilant-space-train-qv4vw6qqvp539r4v-21465.app.github.dev/webhook",
+            "waitQrCode": true
+         }
+        ate esse ponto esta tudo ok 
+
+
+    - cd /workspaces/Opus-Magnum/continhaZAP/bot/wppconnect-server
+      rm -rf tokens userDataDir 
+      deletar essa pasta quando travar tudo 
+
+    - passo a passo para gerar o qrcode corretamnete 
+      - remova essas duas pastas
+        rm -rf tokens userDataDir 
+      - depois reinicie o servidor 
+        npm run dev 
+      - depois atualize a pagina do swagger 
+      - de nome a sessao 
+      - gere o token 
+      - autorize 
+      - deixe ativo o qrcode 
+      - start a sessao 
+        apague tudo somente deixe o qrcpde: true 
+        depois de gerar acrescente o webhook 
+        
+
+   - para testar o ollama responder em outro terminal 
+     curl http://localhost:11434/api/generate -d '{
+       "model": "qwen:0.5b",
+       "prompt": "Ola",
+       "stream": false
+     }'
+
+     - usando a url correta 
+       curl -X POST 'https://vigilant-space-train-qv4vw6qqvp539r4v-21465.app.github.dev/api/NERDWHATS_AMERICA/start-session' \
+       -H 'Content-Type: application/json' \
+       -H 'Authorization: Bearer $2b$10$l9nFQ1tYoIXWcc6trJ9v2Oltt5R_egU6YBstYTHYksks3gHg_KWUK' \
+       -d '{
+             "webhook": "https://vigilant-space-train-qv4vw6qqvp539r4v-3000.app.github.dev/webhook",
+             "waitQrCode": true
+           }'
+
+    - para evitar ficar gerando token toda hora 
+      - instalar 
+        npm install -g pm2
+      - iniciar o servidor 
+        pm2 start npm --name "wppconnect" -- run dev
+      - para reiniciar 
+        pm2 restart wppconnect  
+        obs muito ruim desinstalei 
+
+
+
+    - a porta 3000 precisa ser publica 
+    - onSelfMessage: true, no config.ts para poder enviar mensagem apra mim mesmo 
+
+
+    hj nao obiteve avanços foram pequenos segunda feira estudar possiveis causas
+    segunda feira 

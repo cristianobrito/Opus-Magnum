@@ -37,7 +37,7 @@ export default {
     onPollResponse: true,
     onRevokedMessage: true,
     onLabelUpdated: true,
-    onSelfMessage: false,
+    onSelfMessage: true,
     ignore: ['status@broadcast'],
   },
   websocket: {

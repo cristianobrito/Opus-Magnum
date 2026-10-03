@@ -1,52 +1,80 @@
 const { Router } = require('express');
+const axios = require('axios');
 
 const router = Router();
 
+// ===== CONFIGURAÇÕES =====
+const API_TOKEN = '$2b$10$JhZte0WU19PAw4gglEufc.ShZiOs8CzVCTUYvPWhUfSsa0HG5TdiO';
+const SESSION_NAME = 'NERDWHATS_AMERICA';
+const WPP_API_URL = 'http://localhost:21465';
+const OLLAMA_URL = 'http://localhost:11434';
+const OLLAMA_MODEL = 'qwen:0.5b';
+
+// ===== WEBHOOK =====
 router.post('/webhook', async (req, res) => {
     try {
-        console.log('--- NOVA MENSAGEM RECEBIDA NO WEBHOOK ---');
-        console.log(JSON.stringify(req.body, null, 2));
+        const bodyData = req.body;
+        const messageObj = bodyData.data || bodyData;
 
-        // Extrai o texto da mensagem (ajustaremos o caminho exato conforme o payload do WPPConnect)
-        // Por enquanto, aceitamos uma propriedade 'message', 'text' ou o corpo genérico
-        const userMessage = req.body.message || req.body.text || req.body.teste || 'Olá';
+        const userMessage = messageObj.body || messageObj.text || messageObj.content;
+        const senderPhone = messageObj.from || messageObj.to;
+        const fromMe = messageObj.fromMe;
 
-        console.log(`Enviando para o Ollama: "${userMessage}"`);
-
-        // Fazendo a requisição HTTP para o Ollama local
-        const ollamaResponse = await fetch('http://localhost:11434/api/generate', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                model: 'qwen:0.5b',
-                prompt: userMessage,
-                stream: false // Recebe a resposta completa de uma vez só
-            })
-        });
-
-        if (!ollamaResponse.ok) {
-            throw new Error(`Erro na API do Ollama: ${ollamaResponse.statusText}`);
+        // Se for um evento sem texto (como presença, status, etc.), respondemos logo sem poluir o terminal
+        if (!userMessage) {
+            return res.status(200).json({ status: 'ignored_no_text' });
         }
 
-        const ollamaData = await ollamaResponse.json();
-        const aiReply = ollamaData.response || 'Sem resposta da IA.';
+        // Se foi enviado por ti, ignoramos para evitar loops
+        if (fromMe) {
+            return res.status(200).json({ status: 'ignored_from_me' });
+        }
 
-        console.log(`Resposta do Ollama: "${aiReply}"`);
+        // A partir daqui, SÓ APARECE NO TERMINAL se for uma mensagem real de texto de alguém!
+        console.log('=== MENSAGEM REAL RECEBIDA ===');
+        console.log(`💬 De: ${senderPhone} | Mensagem: "${userMessage}"`);
+        console.log('🧠 A enviar prompt para o Ollama...');
+
+        // ===== 1. Perguntar ao Ollama =====
+        const ollamaResponse = await axios.post(
+            `${OLLAMA_URL}/api/generate`,
+            {
+                model: OLLAMA_MODEL,
+                prompt: userMessage,
+                stream: false
+            }
+        );
+
+        const aiReply = ollamaResponse.data.response || 'Desculpe, não consegui gerar uma resposta.';
+        console.log(`🤖 Resposta da IA: "${aiReply}"`);
+
+        // ===== 2. Enviar a resposta de volta para o WhatsApp =====
+        const wppApiUrl = `${WPP_API_URL}/api/${SESSION_NAME}/send-message`;
+        
+        await axios.post(
+            wppApiUrl,
+            {
+                phone: senderPhone,
+                message: aiReply
+            },
+            {
+                headers: {
+                    'Authorization': `Bearer ${API_TOKEN}`,
+                    'Content-Type': 'application/json'
+                }
+            }
+        );
+
+        console.log('✅ Resposta enviada com sucesso para o WhatsApp!');
 
         return res.status(200).json({
             status: 'success',
-            user_message: userMessage,
-            ai_response: aiReply
+            response: aiReply
         });
 
     } catch (error) {
-        console.error('Erro ao processar o webhook ou comunicar com o Ollama:', error.message);
-        return res.status(500).json({
-            status: 'error',
-            message: error.message
-        });
+        console.error('❌ ERRO NO WEBHOOK:', error.message);
+        return res.status(200).json({ status: 'error', message: error.message });
     }
 });
 
